@@ -1,0 +1,18 @@
+
+apiVersion: monitoring.coreos.com/v1
+kind: PodMonitor
+metadata:
+  name: pm4
+  namespace: monitoring
+  label:
+    m1: m1
+spec:
+  selector:
+    matchLabels:
+      app: t1
+  namespaceSelector:
+    matchNames:
+      - default
+  podMetricsEndpoints:
+  - port: metrics
+    interval: 5s

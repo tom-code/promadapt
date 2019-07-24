@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app
+spec:
+  selector:
+    matchLabels:
+      app: t1
+      svc: zzz
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: t1
+        svc: zzz
+    spec:
+      containers:
+      - name: app
+        imagePullPolicy: Never
+        image: app
+        ports:
+        - name: metrics
+          containerPort: 9999
+
+
